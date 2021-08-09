@@ -1,0 +1,24 @@
+{
+    "name": "didix16/php-apidataobject",
+    "description": "A simple library that allows easy handle incoming data from any sources (specially from API sources) and put data in a fashion way which is more practical to access it like an array or object. It allows to implement a DTO very fast.",
+    "type": "library",
+    "keywords": ["simple", "data", "array", "object", "dto", "api", "json"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dídac Rodríguez",
+            "email": "drodriguez816@gmail.com",
+            "homepage": "https://github.com/didix16",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">= 7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "didix16\\Api\\": "src/"
+        }
+    }
+}
