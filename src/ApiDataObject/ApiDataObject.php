@@ -39,7 +39,7 @@ abstract class ApiDataObject implements ApiDataObjectInterface
      */
     public static function fromJson(string $json)
     {
-        $data = json_decode($json,true);
+        $data = json_decode($json);
         return new static($data);
 
     }
