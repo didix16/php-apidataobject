@@ -3,13 +3,15 @@
 
 namespace didix16\Api\ApiDataObject;
 
+use JsonSerializable;
+
 /**
  * Given a source of data, builds that data into an object
  * The ApiDataObject can be accessed as array and thus can be iterated.
  * Class ApiDataObject
  * @package didix16\Api\ApiDataObject
  */
-abstract class ApiDataObject implements ApiDataObjectInterface
+abstract class ApiDataObject implements ApiDataObjectInterface, JsonSerializable
 {
     use ArrayablePropertiesTrait,
         IterablePropertiesTrait;
@@ -118,6 +120,14 @@ abstract class ApiDataObject implements ApiDataObjectInterface
      */
     public function all(){
 
+        return $this->properties;
+    }
+
+    /**
+     * Returns the properties of this object to be json serialized using json_encode() built-in function
+     */
+    public function jsonSerialize()
+    {
         return $this->properties;
     }
 
