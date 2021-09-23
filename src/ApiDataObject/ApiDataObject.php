@@ -17,6 +17,15 @@ abstract class ApiDataObject implements ApiDataObjectInterface, JsonSerializable
         IterablePropertiesTrait;
 
     /**
+     * Check if $value is undefined value.
+     * inside incoming data
+     */
+    public static function isUndefined($value): bool
+    {
+        return $value instanceof UndefinedField;
+    }
+
+    /**
      * Data given can be in array or object form.
      * ApiDataObject constructor.
      * @param $data
@@ -47,9 +56,9 @@ abstract class ApiDataObject implements ApiDataObjectInterface, JsonSerializable
     }
 
     /**
-     * Return the property value if set, else return null
+     * Return the property value if set, else return UndefinedField
      * @param $name
-     * @return mixed|null
+     * @return mixed|UndefinedField
      */
     public function &__get($name)
     {
@@ -57,7 +66,7 @@ abstract class ApiDataObject implements ApiDataObjectInterface, JsonSerializable
             $val = &$this->properties[$name];
             return $val;
         }
-        $val = null;
+        $val = new UndefinedField;
         $val2 = &$val;
         return $val2;
     }
